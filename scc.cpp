@@ -12,16 +12,17 @@ struct SCC{
     int N;
     int N_compressed;
 
-    void init(int n, vector<vector<int>>& gr){
+    void init(int n){
         N = n;
         adj = vector<vector<int>>(n);
         rev_adj = vector<vector<int>>(n);
         component_no = vector<int>(n, -1);
         vis = vector<bool>(n);
+    }
 
-        for(int u = 0; u < n; u++){
-            for(int v : gr[u]) adj[u].push_back(v), rev_adj[v].push_back(u);
-        }
+    void addEdge(int u, int v){
+        adj[u].push_back(v);
+        rev_adj[v].push_back(u);
     }
 
     void addToStack(int u, stack<int>& st){
