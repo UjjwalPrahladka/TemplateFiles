@@ -9,6 +9,7 @@ struct SCC{
     vector<int> component_no;
     vector<bool> vis;
     vector<int> indegree, outdegree;
+    vector<int> topological_ordering;
     int N;
     int N_compressed;
 
@@ -18,6 +19,7 @@ struct SCC{
         rev_adj = vector<vector<int>>(n);
         component_no = vector<int>(n, -1);
         vis = vector<bool>(n);
+        topological_ordering = vector<int>();
     }
 
     void addEdge(int u, int v){
@@ -25,12 +27,12 @@ struct SCC{
         rev_adj[v].push_back(u);
     }
 
-    void addToStack(int u, stack<int>& st){
+    void findOrdering(int u){
         vis[u] = true;
         for(int v: adj[u]){
-            if(!vis[v]) addToStack(v, st);
+            if(!vis[v]) findOrdering(v);
         }
-        st.push(u);
+        topological_ordering.push_back(u);
     }
 
     void dfs(int u, int comp){
@@ -44,26 +46,22 @@ struct SCC{
     }
 
     void compressSCC(){
-        stack<int> st;
         vis.assign(N, false);
         for(int i = 0; i < N; i++){
             if(!vis[i]){
-                addToStack(i, st);
+                findOrdering(i);
             }
         }
 
         N_compressed = 0;
         vis.assign(N, false);
-        while(!st.empty()){
-            int u = st.top();
-            st.pop();
+        reverse(topological_ordering.begin(), topological_ordering.end());
+
+        for(int u : topological_ordering){
             if(vis[u]) continue;
-
             dfs(u, N_compressed);
-
             N_compressed++;
         }
-
         
         compressed_adj = vector<set<int>>(N_compressed);
 
