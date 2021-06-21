@@ -7,7 +7,6 @@ using namespace std;
 #define debug(x)
 #endif
 
-void _print(long long t) {cerr << t;}
 void _print(int t) {cerr << t;}
 void _print(string t) {cerr << t;}
 void _print(char t) {cerr << t;}
