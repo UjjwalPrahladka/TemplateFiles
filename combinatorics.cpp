@@ -3,9 +3,9 @@
 using namespace std;
 const int MAX = 1e6 + 6;
 const int MOD = 1e9 + 7;
-vector<int> fact(MAX+1);
-vector<int> invFact(MAX+1);
-vector<int> inv(MAX+1);
+int fact[MAX+1];
+int invFact[MAX+1];
+int inv[MAX+1];
 
 int power(int a, int b){
     int res = 1;
