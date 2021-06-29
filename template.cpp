@@ -21,12 +21,21 @@ template <class T> void _print(multiset <T> v) {cerr << "[  "; for (T i : v) {_p
 template <class T, class V> void _print(map <T, V> v) {cerr << "[  "; for (auto i : v) {_print(i); cerr << "  ";} cerr << "]";}
 template <class T> void _print(T v[], int n) {cerr << "[  "; for (int i = 0; i < n; i++) {_print(v[i]); cerr << "  ";} cerr << "]";}
 
+void run(){
+    
+}
 
 int32_t main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0), cout.tie();
 
+    int t;
+    cin >> t;
+    // t = 1;
 
+    while(t--){
+        run();
+    }
 
 }
 
