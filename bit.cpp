@@ -28,7 +28,7 @@ struct BIT{
     }
  
     int rangeSum(int i, int j){
-        return sum(j) - sum(i-1);
+        return sum(j) - (i == 1 ? 0 : sum(i-1));
     }
  
 };
