@@ -61,6 +61,20 @@ vector<int> type4(vector<pair<int,int>>& a){
 
 
 //type5 - cnti = number of intervals that intersects ith interval
-vector<int> type4(vector<pair<int,int>>& a){
+vector<int> type5(vector<pair<int,int>>& a){
+    int n = a.size();
 
+    int L[n], R[n];
+    for(int i = 0; i < n; i++) L[i] = a[i].first, R[i] = a[i].second;
+    sort(L, L + n);
+    sort(R, R + n);
+
+    vector<int> ans(n);
+    for(int i = 0; i < n; i++){
+        int started = upper_bound(L, L + n, a[i].second) - L;
+        int ended = lower_bound(R, R + n, a[i].first) - R;
+        ans[i] = started - ended;
+    }   
+
+    return ans;
 }
