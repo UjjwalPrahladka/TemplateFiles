@@ -133,11 +133,10 @@ vector<int> type2(vector<pair<int,int>>& a){
     vector<int> ans(n);
     for(int i = 0; i < n; i++){
         int idx = order[i];
+        ans[idx] = ds.calc(L[idx], 2*n-1).sum;
 
         int val = ds.calc(L[idx], L[idx]).sum;
         ds.set(L[idx], val+1);
-
-        ans[idx] = ds.calc(L[idx], 2*n-1).sum;
     }
 
     return ans;
@@ -146,7 +145,62 @@ vector<int> type2(vector<pair<int,int>>& a){
 
 // type3 - cnti = number of intervals that partially intersects ith interval
 vector<int> type3(vector<pair<int,int>>& a){
+    int n = a.size();
 
+    set<int> values;
+    for(int i = 0; i < n; i++){
+        values.insert(a[i].first);
+        values.insert(a[i].second);
+    }
+
+    map<int, int> compressed_val;
+    int cur = 0;
+    for(int x : values){
+        compressed_val[x] = cur++;
+    }
+
+    int L[n], R[n];
+    for(int i = 0; i < n; i++){
+        L[i] = compressed_val[a[i].first];
+        R[i] = compressed_val[a[i].second];
+    }
+
+    int order[n];
+    iota(order, order + n, 0);
+    sort(order, order + n, [&](int x, int y){
+        if(L[x] == L[y]) return R[x] > R[y];
+        return L[x] < L[y];
+    });
+
+    segtree ds;
+    ds.init(2*n);
+
+    vector<int> ans(n);
+    for(int i = 0; i < n; i++){
+        int idx = order[i];
+        ans[idx] = ds.calc(L[idx], R[idx]-1).sum;
+
+        int val = ds.calc(R[idx], R[idx]).sum;
+        ds.set(R[idx], val+1);
+    }
+
+    
+    sort(order, order + n, [&](int x, int y){
+        if(R[x] == R[y]) return L[x] < L[y];
+        return R[x] > R[y];
+    });
+
+    ds.init(2*n);
+
+    for(int i = 0; i < n; i++){
+        int idx = order[i];
+        ans[idx] += ds.calc(L[idx]+1, R[idx]).sum;
+
+        int val = ds.calc(L[idx], L[idx]).sum;
+        ds.set(L[idx], val+1);
+    }
+
+    return ans;
 }
 
 
@@ -186,11 +240,10 @@ vector<int> type4(vector<pair<int,int>>& a){
     vector<int> ans(n);
     for(int i = 0; i < n; i++){
         int idx = order[i];
+        ans[idx] = ds.calc(R[idx], 2*n-1).sum;
 
         int val = ds.calc(R[idx], R[idx]).sum;
         ds.set(R[idx], val+1);
-
-        ans[idx] = ds.calc(R[idx], 2*n-1).sum;
     }
 
     return ans;
@@ -211,7 +264,7 @@ vector<int> type5(vector<pair<int,int>>& a){
     for(int i = 0; i < n; i++){
         int started = upper_bound(L, L + n, a[i].second) - L;
         int ended = lower_bound(R, R + n, a[i].first) - R;
-        ans[i] = started - ended;
+        ans[i] = started - ended - 1;
     }   
 
     return ans;
