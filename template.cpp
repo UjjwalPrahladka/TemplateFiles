@@ -10,6 +10,7 @@ using namespace std;
 #define debug_array(x, n)
 #endif
 
+void _print(bool t) {cerr << t;}
 void _print(int t) {cerr << t;}
 void _print(string t) {cerr << t;}
 void _print(char t) {cerr << t;}
