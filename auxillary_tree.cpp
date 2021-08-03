@@ -100,7 +100,7 @@ int root(vector<int>& vert){
 int sub_size[MAX+1];
 int total_cnt = 0;
 
-int solve(int u){
+int solve(int u, int par){
 
     int ans = 0;
 
