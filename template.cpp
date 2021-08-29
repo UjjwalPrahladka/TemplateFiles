@@ -35,7 +35,8 @@ int32_t main() {
     cin >> t;
     // t = 1;
 
-    while(t--){
+    for(int tc = 1; tc <= t; tc++){
+        // cout << "Case #" << tc << ": ";
         run();
     }
 
