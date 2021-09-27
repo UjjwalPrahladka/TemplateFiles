@@ -15,11 +15,11 @@ struct SCC{
 
     void init(int n){
         N = n;
-        adj = vector<vector<int>>(n);
-        rev_adj = vector<vector<int>>(n);
-        component_no = vector<int>(n, -1);
-        vis = vector<bool>(n);
-        topological_ordering = vector<int>();
+        adj.assign(n, vector<int>());
+        rev_adj.assign(n, vector<int>());
+        component_no.assign(n, -1);
+        vis.assign(n, 0);
+        topological_ordering.clear();
     }
 
     void addEdge(int u, int v){
@@ -63,7 +63,7 @@ struct SCC{
             N_compressed++;
         }
         
-        compressed_adj = vector<set<int>>(N_compressed);
+        compressed_adj.assign(N_compressed, set<int>());
 
         for(int u = 0; u < N; u++){
             for(int v : adj[u]){
@@ -76,8 +76,8 @@ struct SCC{
     }
 
     void fillDegrees(){
-        indegree = vector<int>(N_compressed);
-        outdegree = vector<int>(N_compressed);
+        indegree.assign(N_compressed, 0);
+        outdegree.assign(N_compressed, 0);
 
         for(int u = 0; u < N_compressed; u++){
             for(int v : compressed_adj[u]) indegree[v]++, outdegree[u]++;

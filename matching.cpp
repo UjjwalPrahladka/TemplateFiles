@@ -11,10 +11,10 @@ struct MaximumMatching{
 
     void init(int n1, int n2){
         U = n1, V = n2;
-        adj = vector<vector<int>>(U + 1);
-        pairU = vector<int>(U + 1, 0);
-        pairV = vector<int>(V + 1, 0);
-        dist = vector<int>(U + 1);
+        adj.assign(U + 1, vector<int>());
+        pairU.assign(U + 1, 0);
+        pairV.assign(V + 1, 0);
+        dist.assign(U + 1, 0);
     }
 
     void addEdge(int u, int v){

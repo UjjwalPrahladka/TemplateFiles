@@ -30,9 +30,7 @@ int power(int a, int b, int MOD){
 	return res;
 }
 
-vector<int> pw1(N), pw2(N);
-vector<int> inv1(N), inv2(N);
-vector<int> H1(N), H2(N);
+int pw1[N], pw2[N], inv1[N], inv2[N], H1[N], H2[N];
 
 void precalc() {
 	pw1[0] = 1, pw2[0] = 1;

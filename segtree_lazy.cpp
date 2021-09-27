@@ -20,8 +20,8 @@ struct segtree{
     void init(int n){
         size_ = 1;
         while(size_ < n) size_ *= 2;
-        values.resize(2*size_-1);
-        lazy.resize(2*size_-1);
+        values.assign(2*size_-1, {});
+        lazy.assign(2*size_-1, {});
     }
  
     item merge(item a, item b){

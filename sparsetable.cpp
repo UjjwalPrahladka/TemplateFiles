@@ -11,8 +11,8 @@ struct SparseTable{
     void init(int n){
         N = n;
         LOG = ceil(log2(n));
-        st = vector<vector<int>>(n+1, vector<int>(LOG+1));
-        logs = vector<int>(n+1);
+        st.assign(n+1, vector<int>(LOG+1));
+        logs.assign(n+1, 0);
     }
 
     void build(vector<int>& a){

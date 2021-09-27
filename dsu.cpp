@@ -6,8 +6,8 @@ struct DSU{
     vector<int> rank;
     
     void init(int n){
-        parent.resize(n);
-        rank.resize(n);
+        parent.assign(n, 0);
+        rank.assign(n, 0);
         for(int i = 0; i < n; i++){
             parent[i] = i;
             rank[i] = 0;

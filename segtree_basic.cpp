@@ -13,7 +13,7 @@ struct segtree{
     void init(int n){
         size = 1;
         while(size < n) size *= 2;
-        values = vector<item>(2*size-1);
+        values.assign(2*size-1, {});
     }
  
     item merge(item a, item b){

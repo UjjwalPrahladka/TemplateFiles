@@ -8,7 +8,7 @@ struct BIT{
  
     void init(int n){
         N = n;
-        values = vector<int>(N+1, 0);
+        values.assign(N+1, 0);
     }
  
     void update(int idx, int val){

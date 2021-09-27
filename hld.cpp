@@ -110,17 +110,17 @@ void decompose(int v, int h) {
 }
  
 void init(int n) {
-    adj = vector<vector<int>>(n);
-    node_val = vector<int>(n);
-    parent = vector<int>(n);
-    depth = vector<int>(n);
-    heavy = vector<int>(n);
-    head = vector<int>(n);
-    pos = vector<int>(n);
+    adj.assign(n, vector<int>());
+    node_val.assign(n, 0);
+    parent.assign(n, 0);
+    depth.assign(n, 0);
+    heavy.assign(n, 0);
+    head.assign(n, 0);
+    pos.assign(n, 0);
     ds.init(n);
     cur_pos = 0;
     LOG = (int)log2(n) + 1;
-    memo = vector<vector<int>>(n, vector<int>(LOG+1));
+    memo.assign(n, vector<int>(LOG+1, 0));
 }
  
 int query(int a, int b) {

@@ -6,7 +6,7 @@ vector<vector<int>> pref2d;
 void precalculate(vector<vector<int>>& a){
     int n = a.size();
     int m = a[0].size();
-    pref2d = vector<vector<int>>(n, vector<int>(m));
+    pref2d.assign(n, vector<int>(m, 0));
     pref2d[0][0] = a[0][0];
     for(int i = 1; i < n; i++) pref2d[i][0] = pref2d[i-1][0] + a[i][0];
     for(int i = 1; i < m; i++) pref2d[0][i] = pref2d[0][i-1] + a[0][i];

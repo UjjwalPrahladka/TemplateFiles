@@ -9,7 +9,7 @@ struct BIT{
     void init(int n, int m){
         N = n;
         M = m;
-        values = vector<vector<int>>(N+1, vector<int>(M+1));
+        values.assign(N+1, vector<int>(M+1));
     }
  
     void update(int i, int j, int val){
