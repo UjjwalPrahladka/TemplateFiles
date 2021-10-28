@@ -8,7 +8,6 @@ struct SCC{
     vector<set<int>> compressed_adj;
     vector<int> component_no;
     vector<bool> vis;
-    vector<int> indegree, outdegree;
     vector<int> topological_ordering;
     int N;
     int N_compressed;
@@ -73,15 +72,6 @@ struct SCC{
             }
         }
 
-    }
-
-    void fillDegrees(){
-        indegree.assign(N_compressed, 0);
-        outdegree.assign(N_compressed, 0);
-
-        for(int u = 0; u < N_compressed; u++){
-            for(int v : compressed_adj[u]) indegree[v]++, outdegree[u]++;
-        }
     }
     
 };
