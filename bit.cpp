@@ -1,13 +1,13 @@
 #include<bits/stdc++.h>
-#define int int 
 using namespace std;
 struct BIT{
 
     vector<int> values;
-    int N;
+    int N, LOGN;
  
     void init(int n){
         N = n;
+        LOGN = ceil(log2(N));
         values.assign(N+1, 0);
     }
  
@@ -29,6 +29,20 @@ struct BIT{
  
     int rangeSum(int i, int j){
         return sum(j) - (i == 1 ? 0 : sum(i-1));
+    }
+
+    int find(int x){
+        int sum = 0;
+        int pos = 0;
+        
+        for(int i = LOGN; i >= 0; i--){
+            if(pos + (1 << i) <= N and sum + values[pos + (1 << i)] < x){
+                sum += values[pos + (1 << i)];
+                pos += (1 << i);
+            }
+        }
+ 
+        return pos + 1;
     }
  
 };
