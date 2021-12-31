@@ -1,11 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-class Point{
-public:
+struct Point{
     int x, y;
-
     Point(){
         x = 0;
         y = 0;
@@ -17,8 +14,7 @@ public:
     }
 };
 
-class Line{
-public:
+struct Line{
 
     int a, b, c; //ax + by + c = 0
 
@@ -45,13 +41,7 @@ public:
         
     }
 
-    bool operator<(const Line &other) const {
-        if(a == other.a){
-            if(b == other.b){
-                return c < other.c;
-            }
-            return b < other.b;
-        }
-        return a < other.a;
+    bool passesThru(Point p1){
+        return a * p1.x + b * p1.y + c == 0;
     }
 };
