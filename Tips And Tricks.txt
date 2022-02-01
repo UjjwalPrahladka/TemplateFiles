@@ -1,0 +1,8 @@
+
+greedy ?
+
+dp ? constraints too much ? upperbound on constraint is less?
+
+brute force ? not many iterations required ? root(n) split ? 1 precal 2 solve
+
+binary search ? 
