@@ -8,3 +8,6 @@ brute force ? not many iterations required ? root(n) split ? 1 precal 2 solve
 binary search ? 
 
 edge cases ? 0 ? 1 ? negative?
+
+find the least number? how about iterate on bits? choose 0 whenever possible?
+build trie to simulate?
