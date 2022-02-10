@@ -26,7 +26,7 @@ int lca(int u, int v){
         swap(u, v); 
   
     for (int i = LOG; i >= 0; i--) 
-        if ((lev[u] - pow(2, i)) >= lev[v]) 
+        if ((lev[u] - (1 << i)) >= lev[v]) 
             u = memo[u][i]; 
   
     if (u == v) 
