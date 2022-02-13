@@ -31,6 +31,7 @@ struct BIT{
         return sum(j) - (i == 1 ? 0 : sum(i-1));
     }
 
+    //lower_bound(x) => works if prefix sum in increasing
     int find(int x){
         int sum = 0;
         int pos = 0;
