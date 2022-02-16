@@ -31,6 +31,11 @@ struct BIT{
         return sum(j) - (i == 1 ? 0 : sum(i-1));
     }
 
+    void rangeAdd(int i, int j, int val){
+        update(i, val);
+        update(j+1, -val);
+    }
+
     //lower_bound(x) => works if prefix sum in increasing
     int find(int x){
         int sum = 0;
