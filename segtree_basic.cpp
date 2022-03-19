@@ -2,6 +2,7 @@
 using namespace std;
 
 struct item{
+
 };
  
 struct segtree{
@@ -17,11 +18,13 @@ struct segtree{
     }
  
     item merge(item a, item b){
+
     }
  
     item single(int v){
         
     }
+    
     void build(vector<int>& a, int x, int lx, int rx){
         if(lx == rx){
             if(lx < a.size())
