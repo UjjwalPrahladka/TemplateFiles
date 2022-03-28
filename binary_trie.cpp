@@ -3,20 +3,13 @@ using namespace std;
 
 
 struct Node {
-    int cnt;
+    int cnt, val;
     Node *to[2];
 
     Node(){
         cnt = 0;
         to[0] = to[1] = NULL;
-    }
-
-    void increment(){
-        cnt++;
-    }
-
-    void decrement(){
-        cnt--;
+        val = -1;
     }
 };
 
@@ -32,14 +25,7 @@ struct Trie{
         Node *cur = root;
 
         for(int i = 30; i >= 0; i--){
-            int bit;
-            if((1 << i) & val){
-                bit = 1;
-            }
-            else{
-                bit = 0;
-            }
-
+            int bit = ((1 << i) & val) > 0;
 
             if(cur->to[bit] == NULL){
                 Node *newnode = new Node();
@@ -47,20 +33,15 @@ struct Trie{
             }
 
             cur = cur->to[bit];
-            cur->increment();
+            cur->cnt++;
         }
+        cur->val = val;
     }
 
     void erase(int val){
         Node *cur = root;
         for(int i = 30; i >= 0; i--){
-            int bit;
-            if((1 << i) & val){
-                bit = 1;
-            }
-            else{
-                bit = 0;
-            }
+            int bit = ((1 << i) & val) > 0;
 
             Node *next = cur->to[bit];
             if(next->cnt == 1){
@@ -70,7 +51,7 @@ struct Trie{
             else{
                 cur = next;
             }
-            cur->decrement();
+            cur->cnt--;
         }
     }
 
@@ -106,4 +87,35 @@ struct Trie{
 
         return ans;
     }
+
+    int findMax(int x_or){
+        Node* cur = root;
+        for(int i = 30; i >= 0; i--){
+            if((1 << i) & x_or){
+                if(cur->to[0] == NULL) cur = cur->to[1];
+                else cur = cur->to[0];
+            }
+            else{
+                if(cur->to[1] == NULL) cur = cur->to[0];
+                else cur = cur->to[1];
+            }
+        }
+        return cur->val;
+    }
+
+    int findMin(int x_or){
+        Node* cur = root;
+        for(int i = 30; i >= 0; i--){
+            if((1 << i) & x_or){
+                if(cur->to[1] == NULL) cur = cur->to[0];
+                else cur = cur->to[1];
+            }
+            else{
+                if(cur->to[0] == NULL) cur = cur->to[1];
+                else cur = cur->to[0];
+            }
+        }
+        return cur->val;
+    }
+
 };
