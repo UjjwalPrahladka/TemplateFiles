@@ -17,3 +17,5 @@ dp try to reduce number of states. Maybe some states are dependent on the other?
 for string instead of storing position as state where dp value stores boolean value maybe store in dp minimal position 
 in string to satisfy the state. That way you get rid of 1 state ie pos
 Use next occurances of characters to make transitions.
+
+string problem ? precalc next[i][j] = index of character j after i and make jumps
