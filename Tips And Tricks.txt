@@ -19,3 +19,5 @@ in string to satisfy the state. That way you get rid of 1 state ie pos
 Use next occurances of characters to make transitions.
 
 string problem ? precalc next[i][j] = index of character j after i and make jumps
+
+permutation? try brute force for 1 then see how the answer changes for 2, 3... so on.
