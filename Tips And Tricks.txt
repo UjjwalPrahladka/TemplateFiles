@@ -21,3 +21,7 @@ Use next occurances of characters to make transitions.
 string problem ? precalc next[i][j] = index of character j after i and make jumps
 
 permutation? try brute force for 1 then see how the answer changes for 2, 3... so on.
+
+number of arrays of size n with sum atmost x? Checkout CF #788 F. 
+
+working on bits? consider 60th bit as 0th one so its value will be 1 for now so every bit you turn on will contribute 1. When moving to 59 multiply info by 2.
