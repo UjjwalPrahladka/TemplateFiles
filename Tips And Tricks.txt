@@ -25,3 +25,8 @@ permutation? try brute force for 1 then see how the answer changes for 2, 3... s
 number of arrays of size n with sum atmost x? Checkout CF #788 F. 
 
 working on bits? consider 60th bit as 0th one so its value will be 1 for now so every bit you turn on will contribute 1. When moving to 59 multiply info by 2.
+
+
+question similar to RBS ? ( => 1, ) => -1, sum is 0 and minimum value in perf sum is 0.
+checking for RBS? cnt( >= cnt) for all pref AND cnt) >= cnt( for all suf
+cyclic shifts are possible as it starts with 0 and ends at 0.
