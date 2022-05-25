@@ -63,9 +63,9 @@ int root(vector<int>& vert){
         vert.push_back(lca(vert[i], vert[i+1]));
     }
 
+    sort(vert.begin(), vert.end(), [&](int x, int y){ return start_time[x] < start_time[y]; });
     vert.erase(unique(vert.begin(), vert.end()), vert.end());
 
-    sort(vert.begin(), vert.end(), [&](int x, int y){ return start_time[x] < start_time[y]; });
 
     for(int x : vert) adj_at[x].clear();
 
