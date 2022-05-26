@@ -30,3 +30,6 @@ working on bits? consider 60th bit as 0th one so its value will be 1 for now so 
 question similar to RBS ? ( => 1, ) => -1, sum is 0 and minimum value in perf sum is 0.
 checking for RBS? cnt( >= cnt) for all pref AND cnt) >= cnt( for all suf
 cyclic shifts are possible as it starts with 0 and ends at 0.
+
+
+FUN FACT : Grey code minimizes sum of xor of consecutive integers. Works for 0 .. 2 ^ n - 1
