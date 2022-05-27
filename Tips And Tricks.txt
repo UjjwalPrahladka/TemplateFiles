@@ -33,3 +33,6 @@ cyclic shifts are possible as it starts with 0 and ends at 0.
 
 
 FUN FACT : Grey code minimizes sum of xor of consecutive integers. Works for 0 .. 2 ^ n - 1
+
+
+Partitioning in two parts ? Bipartite Graph ? Euler Circuits?. See CF# 770 E
