@@ -3,6 +3,8 @@ greedy ?
 
 dp ? constraints too much ? upperbound on constraint is less?
 
+dp for max/min cost ? How about calculating max/min number of things on which cost depends instead of cost directly? 
+
 brute force ? not many iterations required ? root(n) split ? 1 precal 2 solve
 
 binary search ? 
@@ -36,3 +38,4 @@ FUN FACT : Grey code minimizes sum of xor of consecutive integers. Works for 0 .
 
 
 Partitioning in two parts ? Bipartite Graph ? Euler Circuits?. See CF# 770 E
+
