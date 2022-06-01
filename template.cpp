@@ -31,9 +31,8 @@ int32_t main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0), cout.tie();
 
-    int t;
+    int t = 1;
     cin >> t;
-    // t = 1;
 
     for(int tc = 1; tc <= t; tc++){
         // cout << "Case #" << tc << ": ";
