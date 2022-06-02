@@ -7,7 +7,7 @@ mt19937 mt(time(nullptr));
 struct Treap{
     int data, priority;
     array<Treap*, 2> kids;
-    int subtreeSize, sum, toProp, toFlip, fwHash, bwHash;
+    int subtreeSize, sum, toProp, toFlip;
 
     Treap(int data) : data(data){
         priority = mt();
