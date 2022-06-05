@@ -30,3 +30,5 @@ template <int32_t MOD> istream & operator >> (istream & in, modint<MOD> &n) { re
 template <int32_t MOD> ostream & operator << (ostream & out, modint<MOD> n) { return out << n.value; }
 
 using mint = modint<MOD>;
+
+void _print(mint t) {cerr << t.value;}

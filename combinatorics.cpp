@@ -32,6 +32,8 @@ template <int32_t MOD> ostream & operator << (ostream & out, modint<MOD> n) { re
 
 using mint = modint<MOD>;
 
+void _print(mint t) {cerr << t.value;}
+
 mint fact[MAX+1], invFact[MAX+1], inv[MAX+1];
 
 void precalculate(){
